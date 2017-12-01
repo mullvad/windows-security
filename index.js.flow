@@ -1,0 +1,27 @@
+declare module "windows-security" {
+  // reference https://msdn.microsoft.com/en-us/library/windows/desktop/aa379650(v=vs.85).aspx
+  declare type RawWellKnownSidType = number;
+
+  // reference: https://msdn.microsoft.com/en-us/library/windows/desktop/aa379601(v=vs.85).aspx
+  declare type RawSidNameUse = number;
+
+  declare class Sid {
+    constructor(sidString: string): Sid; // throws
+    toString(): string; // throws
+    getAccountName(): string; // throws
+    getDomain(): string; // throws
+    getSidNameUse(): RawSidNameUse; // throws
+  }
+
+  declare function getFileOwnerSid(filepath: string): Sid; // throws
+  declare function isWellKnownSid(sid: Sid, type: RawWellKnownSidType): bool;
+
+  declare type RawWellKnownSidKey =
+    "User" | "Group" | "Domain" | "Alias" | "WellKnownGroup" |
+    "DeletedAccount" | "Computer" | "Label" | "Invalid" | "Unknown";
+  declare var WellKnownSid: { [RawWellKnownSidKey]: RawWellKnownSidType };
+
+  declare type RawSidNameUseKey =
+    "World" | "LocalService" | "NetworkService";
+  declare var SidNameUse: { [RawSidNameUseKey]: RawSidNameUse };
+}
