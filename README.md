@@ -1,6 +1,7 @@
 # windows-security
 [![dependencies Status](https://david-dm.org/pronebird/windows-security/status.svg)](https://david-dm.org/pronebird/windows-security)
 [![devDependencies Status](https://david-dm.org/pronebird/windows-security/dev-status.svg)](https://david-dm.org/pronebird/windows-security?type=dev)
+[![AppVeyor](https://img.shields.io/appveyor/ci/pronebird/windows-security.svg)](https://ci.appveyor.com/project/pronebird/windows-security)
 
 TBD
 
