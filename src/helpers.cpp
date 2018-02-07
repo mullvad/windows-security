@@ -4,18 +4,38 @@
 // https://github.com/pronebird
 //
 
-#include <comdef.h>
 #include "helpers.h"
 
 CAtlString GetWin32ErrorMessage(DWORD dwError) {
-  return GetComErrorMessage(HRESULT_FROM_WIN32(dwError));
+  LPTSTR lpMessageBuffer = NULL;
+  DWORD dwCchLength = FormatMessage(
+    FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+    NULL,
+    dwError,
+    MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+    (LPTSTR)&lpMessageBuffer,
+    0,
+    NULL
+  );
+
+  CAtlString cs(lpMessageBuffer, dwCchLength);
+
+  ::LocalFree(lpMessageBuffer);
+
+  return cs;
 }
 
-CAtlString GetComErrorMessage(HRESULT hr) {
-  _com_error error(hr);
-  CAtlString cs;
-  cs.Format(_T("%s (code: 0x%08x)"), error.ErrorMessage(), hr);
-  return cs;
+CAtlString GetErrorMessage(HRESULT hr) {
+  switch(HRESULT_FACILITY(hr)) {
+    case FACILITY_WIN32:
+      return GetWin32ErrorMessage(HRESULT_CODE(hr));
+
+    default: {
+      CAtlString cs;
+      cs.Format(_T("Unknown error: 0x%08x"), hr);
+      return cs;
+    }
+  }
 }
 
 BOOL GetSidFromSidString(LPCTSTR pszSid, LPCTSTR pszSystem /* = NULL */, CSid *pSidOutput) {
@@ -45,10 +65,10 @@ CAtlString GetStringFromV8Value(v8::Isolate *isolate, v8::Local<v8::Value> value
   v8::HandleScope scope(isolate);
 #ifdef UNICODE
   const v8::String::Value s(value);
-  return CAtlString((LPCTSTR)*s);
+  return CAtlString((LPCTSTR)*s, s.length());
 #else
   const v8::String::Utf8Value s(value);
-  return CAtlString(*s);
+  return CAtlString(*s, s.length());
 #endif
 
 }

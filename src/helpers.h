@@ -1,5 +1,5 @@
-#include <atlsecurity.h>
 #include <atlstr.h>
+#include <atlsecurity.h>
 #include <node.h>
 
 #define CHECK_ARG_COUNT(ISOLATE, ARGS, EXPECTED) \
@@ -36,7 +36,7 @@
   while (0)
 
 CAtlString GetWin32ErrorMessage(DWORD dwError);
-CAtlString GetComErrorMessage(HRESULT hr);
+CAtlString GetErrorMessage(HRESULT hr);
 
 BOOL GetSidFromSidString(LPCTSTR pszSid, LPCTSTR pszSystem /* = NULL */, CSid *pSidOutput);
 

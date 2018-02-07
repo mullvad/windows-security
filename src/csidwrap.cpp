@@ -106,7 +106,7 @@ void CSidWrap::AccountName(const v8::FunctionCallbackInfo<v8::Value>& args) {
     LPCTSTR accountName = object->m_sid.AccountName();
     args.GetReturnValue().Set(GetV8String(isolate, accountName));
   } catch(CAtlException &e) {
-    CAtlString message = GetComErrorMessage(e.m_hr);
+    CAtlString message = GetErrorMessage(e.m_hr);
     isolate->ThrowException(
       v8::Exception::Error(GetV8String(isolate, message))
     );
@@ -122,7 +122,7 @@ void CSidWrap::Domain(const v8::FunctionCallbackInfo<v8::Value>& args) {
     LPCTSTR domainName = object->m_sid.Domain();
     args.GetReturnValue().Set(GetV8String(isolate, domainName));
   } catch(CAtlException &e) {
-    CAtlString message = GetComErrorMessage(e.m_hr);
+    CAtlString message = GetErrorMessage(e.m_hr);
     isolate->ThrowException(
       v8::Exception::Error(GetV8String(isolate, message))
     );
@@ -137,7 +137,7 @@ void CSidWrap::SidNameUse(const v8::FunctionCallbackInfo<v8::Value>& args) {
     CSidWrap *object = node::ObjectWrap::Unwrap<CSidWrap>(args.Holder());
     args.GetReturnValue().Set(object->m_sid.SidNameUse());
   } catch(CAtlException &e) {
-    CAtlString message = GetComErrorMessage(e.m_hr);
+    CAtlString message = GetErrorMessage(e.m_hr);
     isolate->ThrowException(
       v8::Exception::Error(GetV8String(isolate, message))
     );
@@ -152,7 +152,7 @@ void CSidWrap::Sid(const v8::FunctionCallbackInfo<v8::Value>& args) {
     CSidWrap *object = node::ObjectWrap::Unwrap<CSidWrap>(args.Holder());
     args.GetReturnValue().Set(GetV8String(isolate, object->m_sid.Sid()));
   } catch(CAtlException &e) {
-    CAtlString message = GetComErrorMessage(e.m_hr);
+    CAtlString message = GetErrorMessage(e.m_hr);
     isolate->ThrowException(
       v8::Exception::Error(GetV8String(isolate, message))
     );
