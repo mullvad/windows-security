@@ -13,8 +13,6 @@
 #include "helpers.h"
 #include "csidwrap.h"
 
-#pragma comment(lib, "advapi32.lib")
-
 void AddonGetFileOwnerSid(const v8::FunctionCallbackInfo<v8::Value>& args) {
   v8::Isolate *isolate = v8::Isolate::GetCurrent();
   v8::HandleScope scope(isolate);
