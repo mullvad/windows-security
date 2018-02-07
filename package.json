@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "repository": {
     "type": "github",
-    "url": "https://github.com/pronebird/node-windows-security"
+    "url": "https://github.com/pronebird/windows-security"
   },
   "license": "MIT",
   "scripts": {
