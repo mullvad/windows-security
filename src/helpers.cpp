@@ -41,12 +41,12 @@ CAtlString GetErrorMessage(HRESULT hr) {
 BOOL GetSidFromSidString(LPCTSTR pszSid, LPCTSTR pszSystem /* = NULL */, CSid *pSidOutput) {
   ATLASSERT(pszSid && pSidOutput);
 
-  PSID pRawSid = NULL;
-  if(!ConvertStringSidToSid(pszSid, &pRawSid)) {
+  SID *pRawSid = NULL;
+  if(!ConvertStringSidToSid(pszSid, (PSID *)&pRawSid)) {
     return FALSE;
   }
 
-  *pSidOutput = *((const SID *)pRawSid);
+  *pSidOutput = *pRawSid;
   ::LocalFree(pRawSid);
   return TRUE;
 }
@@ -70,5 +70,4 @@ CAtlString GetStringFromV8Value(v8::Isolate *isolate, v8::Local<v8::Value> value
   const v8::String::Utf8Value s(value);
   return CAtlString(*s, s.length());
 #endif
-
 }
