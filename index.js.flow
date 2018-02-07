@@ -5,6 +5,7 @@ declare module "windows-security" {
   // reference: https://msdn.microsoft.com/en-us/library/windows/desktop/aa379601(v=vs.85).aspx
   declare type RawSidNameUse = number;
 
+  // reference: https://docs.microsoft.com/en-us/cpp/atl/reference/csid-class
   declare class Sid {
     constructor(sidString: string): Sid; // throws
     toString(): string; // throws
@@ -14,6 +15,8 @@ declare module "windows-security" {
   }
 
   declare function getFileOwnerSid(filepath: string): Sid; // throws
+
+  // reference: https://msdn.microsoft.com/en-us/library/windows/desktop/aa379154(v=vs.85).aspx
   declare function isWellKnownSid(sid: Sid, type: RawWellKnownSidType): bool;
 
   declare type RawWellKnownSidKey =
