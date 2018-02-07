@@ -38,7 +38,7 @@
 CAtlString GetWin32ErrorMessage(DWORD dwError);
 CAtlString GetComErrorMessage(HRESULT hr);
 
-BOOL AtlSidFromSidString(LPCTSTR pszSid, LPCTSTR pszSystem /* = NULL */, CSid *pSidOutput);
+BOOL GetSidFromSidString(LPCTSTR pszSid, LPCTSTR pszSystem /* = NULL */, CSid *pSidOutput);
 
 v8::Local<v8::String> GetV8String(v8::Isolate *isolate, LPCTSTR str);
 CAtlString GetStringFromV8Value(v8::Isolate *isolate, v8::Local<v8::Value> value);

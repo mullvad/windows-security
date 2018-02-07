@@ -18,7 +18,7 @@ CAtlString GetComErrorMessage(HRESULT hr) {
   return cs;
 }
 
-BOOL AtlSidFromSidString(LPCTSTR pszSid, LPCTSTR pszSystem /* = NULL */, CSid *pSidOutput) {
+BOOL GetSidFromSidString(LPCTSTR pszSid, LPCTSTR pszSystem /* = NULL */, CSid *pSidOutput) {
   ATLASSERT(pszSid && pSidOutput);
 
   PSID pRawSid = NULL;

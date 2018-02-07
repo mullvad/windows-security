@@ -85,7 +85,7 @@ void CSidWrap::New(const v8::FunctionCallbackInfo<v8::Value>& args) {
   CAtlString systemStr = GetStringFromV8Value(isolate, args[1]);
   CSid sid;
 
-  if(AtlSidFromSidString(sidString, args[1]->IsNullOrUndefined() ? (LPCTSTR)NULL : systemStr, &sid)) {
+  if(GetSidFromSidString(sidString, args[1]->IsNullOrUndefined() ? (LPCTSTR)NULL : systemStr, &sid)) {
     CSidWrap* object = new CSidWrap(sid);
     object->Wrap(args.Holder());
     args.GetReturnValue().Set(args.Holder());
