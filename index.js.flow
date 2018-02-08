@@ -19,12 +19,128 @@ declare module "windows-security" {
   // reference: https://msdn.microsoft.com/en-us/library/windows/desktop/aa379154(v=vs.85).aspx
   declare function isWellKnownSid(sid: Sid, type: RawWellKnownSidType): bool;
 
-  declare type RawWellKnownSidKey =
-    "User" | "Group" | "Domain" | "Alias" | "WellKnownGroup" |
-    "DeletedAccount" | "Computer" | "Label" | "Invalid" | "Unknown";
-  declare var WellKnownSid: { [RawWellKnownSidKey]: RawWellKnownSidType };
-
   declare type RawSidNameUseKey =
-    "World" | "LocalService" | "NetworkService";
+    "User" |
+    "Group" |
+    "Domain" |
+    "Alias" |
+    "WellKnownGroup" |
+    "DeletedAccount" |
+    "Computer" |
+    "Label" |
+    "Invalid" |
+    "Unknown";
   declare var SidNameUse: { [RawSidNameUseKey]: RawSidNameUse };
+
+  declare type  RawWellKnownSidKey =
+    "NullSid" |
+    "WorldSid" |
+    "LocalSid" |
+    "CreatorOwnerSid" |
+    "CreatorGroupSid" |
+    "CreatorOwnerServerSid" |
+    "CreatorGroupServerSid" |
+    "NtAuthoritySid" |
+    "DialupSid" |
+    "NetworkSid" |
+    "BatchSid" |
+    "InteractiveSid" |
+    "ServiceSid" |
+    "AnonymousSid" |
+    "ProxySid" |
+    "EnterpriseControllersSid" |
+    "SelfSid" |
+    "AuthenticatedUserSid" |
+    "RestrictedCodeSid" |
+    "TerminalServerSid" |
+    "RemoteLogonIdSid" |
+    "LogonIdsSid" |
+    "LocalSystemSid" |
+    "LocalServiceSid" |
+    "NetworkServiceSid" |
+    "BuiltinDomainSid" |
+    "BuiltinAdministratorsSid" |
+    "BuiltinUsersSid" |
+    "BuiltinGuestsSid" |
+    "BuiltinPowerUsersSid" |
+    "BuiltinAccountOperatorsSid" |
+    "BuiltinSystemOperatorsSid" |
+    "BuiltinPrintOperatorsSid" |
+    "BuiltinBackupOperatorsSid" |
+    "BuiltinReplicatorSid" |
+    "BuiltinPreWindows2000CompatibleAccessSid" |
+    "BuiltinRemoteDesktopUsersSid" |
+    "BuiltinNetworkConfigurationOperatorsSid" |
+    "AccountAdministratorSid" |
+    "AccountGuestSid" |
+    "AccountKrbtgtSid" |
+    "AccountDomainAdminsSid" |
+    "AccountDomainUsersSid" |
+    "AccountDomainGuestsSid" |
+    "AccountComputersSid" |
+    "AccountControllersSid" |
+    "AccountCertAdminsSid" |
+    "AccountSchemaAdminsSid" |
+    "AccountEnterpriseAdminsSid" |
+    "AccountPolicyAdminsSid" |
+    "AccountRasAndIasServersSid" |
+    "NTLMAuthenticationSid" |
+    "DigestAuthenticationSid" |
+    "SChannelAuthenticationSid" |
+    "ThisOrganizationSid" |
+    "OtherOrganizationSid" |
+    "BuiltinIncomingForestTrustBuildersSid" |
+    "BuiltinPerfMonitoringUsersSid" |
+    "BuiltinPerfLoggingUsersSid" |
+    "BuiltinAuthorizationAccessSid" |
+    "BuiltinTerminalServerLicenseServersSid" |
+    "BuiltinDCOMUsersSid" |
+    "BuiltinIUsersSid" |
+    "IUserSid" |
+    "BuiltinCryptoOperatorsSid" |
+    "UntrustedLabelSid" |
+    "LowLabelSid" |
+    "MediumLabelSid" |
+    "HighLabelSid" |
+    "SystemLabelSid" |
+    "WriteRestrictedCodeSid" |
+    "CreatorOwnerRightsSid" |
+    "CacheablePrincipalsGroupSid" |
+    "NonCacheablePrincipalsGroupSid" |
+    "EnterpriseReadonlyControllersSid" |
+    "AccountReadonlyControllersSid" |
+    "BuiltinEventLogReadersGroup" |
+    "NewEnterpriseReadonlyControllersSid" |
+    "BuiltinCertSvcDComAccessGroup" |
+    "MediumPlusLabelSid" |
+    "LocalLogonSid" |
+    "ConsoleLogonSid" |
+    "ThisOrganizationCertificateSid" |
+    "ApplicationPackageAuthoritySid" |
+    "BuiltinAnyPackageSid" |
+    "CapabilityInternetClientSid" |
+    "CapabilityInternetClientServerSid" |
+    "CapabilityPrivateNetworkClientServerSid" |
+    "CapabilityPicturesLibrarySid" |
+    "CapabilityVideosLibrarySid" |
+    "CapabilityMusicLibrarySid" |
+    "CapabilityDocumentsLibrarySid" |
+    "CapabilitySharedUserCertificatesSid" |
+    "CapabilityEnterpriseAuthenticationSid" |
+    "CapabilityRemovableStorageSid" |
+    "BuiltinRDSRemoteAccessServersSid" |
+    "BuiltinRDSEndpointServersSid" |
+    "BuiltinRDSManagementServersSid" |
+    "UserModeDriversSid" |
+    "BuiltinHyperVAdminsSid" |
+    "AccountCloneableControllersSid" |
+    "BuiltinAccessControlAssistanceOperatorsSid" |
+    "BuiltinRemoteManagementUsersSid" |
+    "AuthenticationAuthorityAssertedSid" |
+    "AuthenticationServiceAssertedSid" |
+    "LocalAccountSid" |
+    "LocalAccountAndAdministratorSid" |
+    "AccountProtectedUsersSid";
+
+  declare var WellKnownSid: { [RawWellKnownSidKey]: RawWellKnownSidType };
 }
