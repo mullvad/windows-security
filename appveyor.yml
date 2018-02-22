@@ -10,8 +10,9 @@ platform:
 configuration: Release
 
 install:
-  - ps: Install-Product node $env:nodejs_version
-  - npm install -g windows-build-tools
+  - ps: Install-Product node $env:nodejs_version $env:platform
+  - npm config set python python2.7
+  - npm config set msvs_version 2015
   - npm install --ignore-scripts
 
 build_script:
