@@ -7,17 +7,19 @@ A Node.js addon that wraps Windows Security APIs and provides a convenient inter
 
 Currently only a limited subset of the API is available, such as SID resolution, file owner resolution and check against the well known SIDs.
 
+## Prerequisites
+
+There are no prerequisites. This module comes with prebuilt binaries published on GitHub releases automatically via Appveyor.
+
+However if you wish to build it from source make sure to install the Visual Studio 2015 Build Tools with MFC/ATL support. For the environment configuration please refer to [the Node.js guidelines by Microsoft](https://github.com/Microsoft/nodejs-guidelines/blob/master/windows-environment.md#environment-setup-and-configuration).
+
 ## Building
 
-To compile the extension for the first time, run
+To compile the module simply run
 
 ```
-$ npm i
-$ npm run configure
-$ npm run build
+./node_modules/.bin/node-pre-gyp build
 ```
-
-All subsequent builds only need `npm run build`
 
 You can confirm everything built correctly by [running the test suite](#to-run-tests).
 
