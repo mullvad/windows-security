@@ -8,20 +8,31 @@ platform:
   - x86
 
 configuration: Release
+build: off
 
 install:
+  - ps: $env:package_version = (Get-Content -Raw -Path package.json | ConvertFrom-Json).version
+  - ps: Update-AppveyorBuild -Version "$env:package_version-$env:APPVEYOR_BUILD_NUMBER"
   - ps: Install-Product node $env:nodejs_version $env:platform
-  - npm config set python python2.7
-  - npm config set msvs_version 2015
-  - npm install --ignore-scripts
-
-build_script:
-  - npm run configure
-  - npm run build
-
-test_script:
   - node --version
   - npm --version
+  - npm config set python python2.7
+  - npm config set msvs_version 2015
+  - npm install --build-from-source
+  - cmd: IF %APPVEYOR_REPO_TAG%==true npm run package --verbose
+
+test_script:
   - npm test
 
-version: 1.0.{build}
+artifacts:
+  - path: build\stage\$(package_version)\*.tar.gz
+    name: myartifact
+
+deploy:
+  provider: GitHub
+  auth_token:
+    secure: ziaFZTgJ/4/yN0jue7Q2XxTP2HXD5bvpMaTb91H7Do7km8QO5QdUTP65UbOlnz13
+  tag: $(package_version)
+  artifact: myartifact
+  on:
+    appveyor_repo_tag: true
