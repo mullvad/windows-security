@@ -4,7 +4,7 @@
   "version": "0.0.2",
   "repository": {
     "type": "github",
-    "url": "https://github.com/pronebird/windows-security"
+    "url": "https://github.com/mullvad/windows-security"
   },
   "license": "MIT",
   "scripts": {
@@ -15,7 +15,7 @@
   "binary": {
     "module_name": "windows_security",
     "module_path": "./lib/binding/{configuration}/{node_abi}-{platform}-{arch}/",
-    "host": "https://github.com/pronebird/windows-security/releases/download/",
+    "host": "https://github.com/mullvad/windows-security/releases/download/",
     "remote_path": "{version}"
   },
   "devDependencies": {
