@@ -31,7 +31,7 @@ artifacts:
 deploy:
   provider: GitHub
   auth_token:
-    secure: ziaFZTgJ/4/yN0jue7Q2XxTP2HXD5bvpMaTb91H7Do7km8QO5QdUTP65UbOlnz13
+    secure: aJwZ9iQ92v6hv7jV/cs4e2LCpMuhSevGlrdrEKN+WqWES4a7rIcXnK1FpmdhLcjn
   tag: $(package_version)
   artifact: myartifact
   on:
