@@ -1,7 +1,7 @@
 environment:
   matrix:
   - nodejs_version: "8.0"
-  - nodejs_version: "9.0"
+    electron_version: "1.8.3"
 
 platform:
   - x64
@@ -18,8 +18,16 @@ install:
   - npm --version
   - npm config set python python2.7
   - npm config set msvs_version 2015
+
+  # build for nodejs
   - npm install --build-from-source
-  - cmd: IF %APPVEYOR_REPO_TAG%==true npm run package --verbose
+
+  # build for electron
+  - npm install --build-from-source --runtime=electron --target=%ELECTRON_VERSION% --dist-url=https://atom.io/download/atom-shell
+
+  # package
+  - IF %APPVEYOR_REPO_TAG%==true npm run package --verbose
+  - IF %APPVEYOR_REPO_TAG%==true npm run package --runtime=electron --target=%ELECTRON_VERSION% --verbose
 
 test_script:
   - npm test
