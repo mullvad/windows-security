@@ -26,7 +26,7 @@
     "node-pre-gyp"
   ],
   "dependencies": {
-    "node-pre-gyp": "^0.6.39"
+    "node-pre-gyp": "^0.10.0"
   },
   "os": [
     "win32"
