@@ -1,7 +1,7 @@
 {
   "main": "index.js",
   "name": "windows-security",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": {
     "type": "github",
     "url": "https://github.com/mullvad/windows-security"
@@ -26,7 +26,7 @@
     "node-pre-gyp"
   ],
   "dependencies": {
-    "node-pre-gyp": "^0.6.39"
+    "node-pre-gyp": "^0.10.0"
   },
   "os": [
     "win32"
