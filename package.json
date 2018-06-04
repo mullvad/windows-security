@@ -1,7 +1,7 @@
 {
   "main": "index.js",
   "name": "windows-security",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": {
     "type": "github",
     "url": "https://github.com/mullvad/windows-security"
