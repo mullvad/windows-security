@@ -7,7 +7,7 @@ declare module "windows-security" {
 
   // reference: https://docs.microsoft.com/en-us/cpp/atl/reference/csid-class
   declare class Sid {
-    constructor(sidString: string): Sid; // throws
+    constructor(sidString: string, system: ?string): Sid; // throws
     toString(): string; // throws
     getAccountName(): string; // throws
     getDomain(): string; // throws

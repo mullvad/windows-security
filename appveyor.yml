@@ -4,6 +4,8 @@ environment:
     electron_version: "1.8.3"
   - nodejs_version: "8.9.3"
     electron_version: "2.0.2"
+  - nodejs_version: "10.2"
+    electron_version: "3.0.0"
 
 platform:
   - x64
